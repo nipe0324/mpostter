@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "静的ページの" do
 
+	let(:base_title) { "Ruby on Rails チュートリアル サンプルアプリ" }
+
 	describe "ホーム画面は" do
 		it "should have the content 'サンプルアプリ'" do
 			visit '/static_pages/home'
@@ -10,7 +12,7 @@ describe "静的ページの" do
 
 		it "should have the right title" do
 			visit '/static_pages/home'
-			expect(page).to have_title("Ruby on Rails チュートリアル サンプルアプリ | ホーム")
+			expect(page).to have_title("#{base_title} | ホーム")
 		end
   end
 
@@ -22,7 +24,7 @@ describe "静的ページの" do
 
 		it "should have the right title" do
 			visit '/static_pages/help'
-			expect(page).to have_title("Ruby on Rails チュートリアル サンプルアプリ | ヘルプ")
+			expect(page).to have_title("#{base_title} | ヘルプ")
 		end
 	end
 
@@ -34,7 +36,19 @@ describe "静的ページの" do
 
 		it "should have the right title" do
 			visit '/static_pages/about'
-			expect(page).to have_title("Ruby on Rails チュートリアル サンプルアプリ | このサイトについて")
+			expect(page).to have_title("#{base_title} | このサイトについて")
+		end
+	end
+
+	describe "お問い合わせ画面は" do
+		it "should have the content 'お問い合わせ'" do
+			visit '/static_pages/contact'
+			expect(page).to have_content('お問い合わせ')
+		end
+
+		it "should have the right title" do
+			visit '/static_pages/contact'
+			expect(page).to have_title("#{base_title} | お問い合わせ")
 		end
 	end
 
