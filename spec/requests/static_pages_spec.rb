@@ -16,4 +16,11 @@ describe "静的ページの" do
 	  end
 	end
 
+	describe "このサイトについて画面は" do
+		it "should have the content 'このサイトについて'" do
+			visit '/static_pages/about'
+			expect(page).to have_content('このサイトについて')
+		end
+	end
+
 end
