@@ -7,6 +7,11 @@ describe "静的ページの" do
 			visit '/static_pages/home'
 			expect(page).to have_content('サンプルアプリ')
 		end
+
+		it "should have the right title" do
+			visit '/static_pages/home'
+			expect(page).to have_title("Ruby on Rails チュートリアル サンプルアプリ | ホーム")
+		end
   end
 
   describe "ヘルプ画面は" do
@@ -14,12 +19,22 @@ describe "静的ページの" do
   		visit '/static_pages/help'
   		expect(page).to have_content('ヘルプ')
 	  end
+
+		it "should have the right title" do
+			visit '/static_pages/help'
+			expect(page).to have_title("Ruby on Rails チュートリアル サンプルアプリ | ヘルプ")
+		end
 	end
 
 	describe "このサイトについて画面は" do
 		it "should have the content 'このサイトについて'" do
 			visit '/static_pages/about'
 			expect(page).to have_content('このサイトについて')
+		end
+
+		it "should have the right title" do
+			visit '/static_pages/about'
+			expect(page).to have_title("Ruby on Rails チュートリアル サンプルアプリ | このサイトについて")
 		end
 	end
 
