@@ -2,59 +2,35 @@ require 'spec_helper'
 
 describe "静的ページの" do
 
-	let(:base_title) { "Ruby on Rails チュートリアル サンプルアプリ" }
+	subject { page }
 
 	describe "ホーム画面は" do
-		it "should have the content 'サンプルアプリ'" do
-			visit '/static_pages/home'
-			expect(page).to have_content('サンプルアプリ')
-		end
+		before { visit root_path }
 
-		it "should have the base title" do
-			visit '/static_pages/home'
-			expect(page).to have_title("#{base_title}")
-		end
-
-		it "should not have the custome page title" do
-			visit '/static_pages/home'
-			expect(page).not_to have_title("| ホーム")
-		end
-  end
+		it { should have_content('サンプルアプリ') }
+		it { should have_title(full_title('')) }
+		it { should_not have_title("| ホーム") }
+	end
 
   describe "ヘルプ画面は" do
-  	it "should have the content 'ヘルプ'" do
-  		visit '/static_pages/help'
-  		expect(page).to have_content('ヘルプ')
-	  end
+  	before { visit help_path }
 
-		it "should have the right title" do
-			visit '/static_pages/help'
-			expect(page).to have_title("#{base_title} | ヘルプ")
-		end
+  	it { should have_content('ヘルプ') }
+		it { should have_title(full_title('ヘルプ')) }
 	end
 
 	describe "このサイトについて画面は" do
-		it "should have the content 'このサイトについて'" do
-			visit '/static_pages/about'
-			expect(page).to have_content('このサイトについて')
-		end
+		before { visit about_path }
 
-		it "should have the right title" do
-			visit '/static_pages/about'
-			expect(page).to have_title("#{base_title} | このサイトについて")
-		end
+		it { should have_content('このサイトについて') }
+
+		it { should have_title(full_title('このサイトについて')) }
 	end
 
 	describe "お問い合わせ画面は" do
-		it "should have the content 'お問い合わせ'" do
-			visit '/static_pages/contact'
-			expect(page).to have_content('お問い合わせ')
-		end
-
-		it "should have the right title" do
-			visit '/static_pages/contact'
-			expect(page).to have_title("#{base_title} | お問い合わせ")
-		end
+		before { visit contact_path }
+		it { should have_content('お問い合わせ') }
+		it { should have_title(full_title('お問い合わせ')) }
 	end
 
 end
