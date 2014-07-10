@@ -9,7 +9,7 @@ describe "静的ページの" do
 
 		it { should have_content('サンプルアプリ') }
 		it { should have_title(full_title('')) }
-		it { should_not have_title("| ホーム") }
+		it { should_not have_title('ホーム') }
 	end
 
   describe "ヘルプ画面は" do

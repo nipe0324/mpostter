@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 def full_title(page_title)
 	base_title = "Ruby on Rails チュートリアル サンプルアプリ"
 	if page_title.empty?
