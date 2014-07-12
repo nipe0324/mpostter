@@ -5,7 +5,7 @@ gem 'rails', '4.1.4'
 
 group :development, :test do
 	gem 'sqlite3'
-	gem 'rspec-rails', '2.13.1'
+	gem 'rspec-rails', '~> 2.14.0.rc1'
 	gem 'guard-rspec', '2.5.0'
 
 	# Spork
@@ -50,3 +50,9 @@ gem 'spring', group: :development
 
 # secure-password
 gem 'bcrypt'
+
+# 実際にありそうなユーザ名とメールアドレスを持つサンプルユーザを自動的に作成
+gem 'faker'
+
+# ページネーション
+gem 'will_paginate'
