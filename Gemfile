@@ -28,6 +28,10 @@ group :test do
 
 	# オブジェクトを定義
 	gem 'factory_girl_rails'
+
+	# Cucumber
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
 gem 'bootstrap-sass', '2.3.2.0'
