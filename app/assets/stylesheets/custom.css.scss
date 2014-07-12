@@ -1,10 +1,19 @@
 @import "bootstrap";
 
-/* ミックスイン、変数など */
-
+/**************************************
+ ミックスイン、変数など
+ **************************************/
 $grayMediumLight: #eaeaea;
 
-/* 全体 */
+@mixin box_sizing {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/**************************************
+ 全体
+ **************************************/
 html {
   overflow-y: scroll;
 }
@@ -28,7 +37,10 @@ textarea {
 	}
 }
 
-/* タイポグラフィ */
+
+/**************************************
+ タイプグラフィティ
+ **************************************/
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1;
 }
@@ -55,7 +67,9 @@ p {
 }
 
 
-/* ヘッダー */
+/**************************************
+ ヘッダー
+ **************************************/
 #logo {
 	float: left;
 	margin-right: 10px;
@@ -73,7 +87,66 @@ p {
 }
 
 
-/* フッター */
+/**************************************
+ サイドバー
+ **************************************/
+aside {
+	section {
+		padding: 10px 0;
+		border-top: 1px solid $grayLighter;
+		&:first-child {
+			border: 0;
+			padding-top: 0;
+		}
+		span {
+			display: block;
+			margin-bottom: 3px;
+			line-height: 1;
+		}
+		h1 {
+			font-size: 1.4em;
+			text-align: left;
+			letter-spacing: -1px;
+			margin-bottom: 3px;
+			margin-top: 0px;
+		}
+	}
+}
+
+/**************************************
+ コンテンツ
+ **************************************/
+
+/* フォーム */
+#error_explanation {
+	color: #f00;
+	ul {
+		list-style: none;
+		margin: 0 0 18px 0;
+	}	
+}
+
+.field_with_erros {
+	@extend .control-group;
+	@extend .error;
+}
+
+
+input, textarea, select, .uneditable-input {
+	border: 1px solid #bbb;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	@include box_sizing;
+}
+
+input {
+	height: auto !important;
+}
+
+/**************************************
+ フッター
+ **************************************/
 footer {
 	margin-top: 45px;
 	padding-top: 5px;
@@ -100,4 +173,16 @@ footer {
 		}
 	}
 
+}
+
+
+/**************************************
+ その他
+ **************************************/
+.debug_dump {
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
 }

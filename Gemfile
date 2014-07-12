@@ -25,6 +25,9 @@ group :test do
 
 	# Notify the result of auto test by guard
 	gem 'growl', '1.0.3'
+
+	# オブジェクトを定義
+	gem 'factory_girl_rails'
 end
 
 gem 'bootstrap-sass', '2.3.2.0'
