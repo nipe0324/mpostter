@@ -9,10 +9,17 @@ describe "Authentication" do
 
 
 		describe "with invalid information" do
+			let(:user) { FactoryGirl.create(:user) }
 			before { click_button "サインイン" }
 
 			it { should have_title('サインイン') }
       it { should have_error_message('間違って') }
+
+			it { should_not have_link('ユーザ一覧',		href: users_path) }
+			it { should_not have_link('プロフィール', href: user_path(user)) }
+			it { should_not have_link('設定', 				href: edit_user_path(user)) }
+			it { should_not have_link('サインアウト', href: signout_path) }
+			it { should have_link('サインイン', href: signin_path) }
 
 			describe "after visiting another page" do
 				before { click_link "ホーム" }
@@ -64,9 +71,7 @@ describe "Authentication" do
 			describe "when attempting to visit a protected page" do
 				before do
 					visit edit_user_path(user)
-					fill_in "Email",			with: user.email
-					fill_in "Password",		with: user.password
-					click_button "サインイン"
+					sign_in user
 				end
 
 				describe "after signing in" do
@@ -102,11 +107,21 @@ describe "Authentication" do
 
 			before { sign_in non_admin, no_capybara: true }
 
-			describe "submiting a DELETE request to the Users#estroy action" do
+			describe "submitting a DELETE request to the Users#destroy action" do
 				before { delete user_path(user) }
 				specify { expect(response).to redirect_to(root_path) }
 			end
+		end
 
+		describe "as admin user" do
+			let(:admin) { FactoryGirl.create(:admin) }
+
+			before { sign_in admin, no_capybara: true }
+
+			describe "submitting a DELETE request to the User#destroy action" do
+				before { delete user_path(admin) }
+				specify { expect(response).to redirect_to(users_url) }
+			end
 		end
 
 	end

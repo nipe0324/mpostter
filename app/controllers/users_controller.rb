@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user,  only: [:index, :edit, :update, :destroy]
   before_action :correct_user,    only: [:edit, :update]
   before_action :admin_user,      only: :destroy
+  before_action :already_singed_in_user, only: [:new, :create]
 
 
   def index
@@ -40,9 +41,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "ユーザを削除しました。"
+    user = User.find(params[:id])
+    if current_user?(user)
+      flash[:error] = "ユーザが自分自身のため削除できません。"
+    else
+      user.destroy
+      flash[:success] = "ユーザを削除しました。"
+    end
     redirect_to users_url
+
   end
 
 
@@ -66,6 +73,13 @@ class UsersController < ApplicationController
 
     def admin_user
       redirect_to(root_path) unless current_user.admin?
+    end
+
+    def already_singed_in_user
+      if signed_in?
+        @user = current_user
+        redirect_to @user
+      end
     end
 
 end
