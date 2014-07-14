@@ -186,7 +186,7 @@ describe "User pages" do
         let(:user) { User.find_by(email: 'test@example.com') }
 
         it { should have_link('ログアウト') }
-        it { should have_title(user.name) }
+        it { should have_title('MPoster') }
         it { should have_success_message("ようこそ") }
       end
     end

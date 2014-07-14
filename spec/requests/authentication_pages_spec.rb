@@ -31,7 +31,7 @@ describe "Authentication" do
 			let(:user) { FactoryGirl.create(:user) }
 			before { valid_signin(user) }
 
-			it { should have_title(user.name) }
+			it { should have_title('MPoster') }
 			it { should have_link('ユーザ一覧',		href: users_path) }
 			it { should have_link('プロフィール', href: user_path(user)) }
 			it { should have_link('設定', 				href: edit_user_path(user)) }
