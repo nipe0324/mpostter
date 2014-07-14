@@ -1,6 +1,9 @@
-# Ruby on Rails チュートリアル：サンプルアプリケーション
+# MPostter: [DEMO](https://whispering-badlands-1815.herokuapp.com/)
 
-これは、
-[*Ruby on Rails チュートリアル*](http://railstutorial.jp/)
-著者 [Michael Hartl](http://michaelhartl.com/)
-のサンプルアプリケーションです。
+## このアプリは？
+### *MPostterはTwitter風のようなアプリです。*
+
+## 機能
+* 認証機能　　...ユーザ登録、ユーザログインができます。
+* MPost機能　...Tweetのように140文字以内のMiniPostができます。
+* フォロー機能...他ユーザをフォローできます。フォローすると、自分のフィードに他ユーザのMPostが表示されます。
