@@ -10,16 +10,16 @@ describe "Authentication" do
 
 		describe "with invalid information" do
 			let(:user) { FactoryGirl.create(:user) }
-			before { click_button "サインイン" }
+			before { click_button "ログイン" }
 
-			it { should have_title('サインイン') }
+			it { should have_title('ログイン') }
       it { should have_error_message('間違って') }
 
 			it { should_not have_link('ユーザ一覧',		href: users_path) }
 			it { should_not have_link('プロフィール', href: user_path(user)) }
 			it { should_not have_link('設定', 				href: edit_user_path(user)) }
-			it { should_not have_link('サインアウト', href: signout_path) }
-			it { should have_link('サインイン', href: signin_path) }
+			it { should_not have_link('ログアウト', href: signout_path) }
+			it { should have_link('ログイン', href: signin_path) }
 
 			describe "after visiting another page" do
 				before { click_link "ホーム" }
@@ -35,12 +35,12 @@ describe "Authentication" do
 			it { should have_link('ユーザ一覧',		href: users_path) }
 			it { should have_link('プロフィール', href: user_path(user)) }
 			it { should have_link('設定', 				href: edit_user_path(user)) }
-			it { should have_link('サインアウト', href: signout_path) }
-			it { should_not have_link('サインイン', href: signin_path) }
+			it { should have_link('ログアウト', href: signout_path) }
+			it { should_not have_link('ログイン', href: signin_path) }
 
 			describe "followed by signout" do
-				before { click_link "サインアウト" }
-				it { should have_link('サインイン') }
+				before { click_link "ログアウト" }
+				it { should have_link('ログイン') }
 			end
 
 		end
@@ -55,7 +55,7 @@ describe "Authentication" do
 			describe "in the Users controller" do
 				describe "visiting the edit page" do
 					before { visit edit_user_path(user) }
-					it { should have_title('サインイン') }
+					it { should have_title('ログイン') }
 				end
 
 				describe "submitting to the update action" do
@@ -65,17 +65,17 @@ describe "Authentication" do
 
 				describe "visiting the user index" do
 					before { visit users_path }
-					it { should have_title('サインイン') }
+					it { should have_title('ログイン') }
 				end
 
 				describe "visiting the following page" do
 					before { visit following_user_path(user) }
-					it { should have_title('サインイン') }
+					it { should have_title('ログイン') }
 				end
 
 				describe "visiting the followers page" do
 					before { visit followers_user_path(user) }
-					it { should have_title('サインイン') }
+					it { should have_title('ログイン') }
 				end				
 			end
 

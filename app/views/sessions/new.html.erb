@@ -1,19 +1,27 @@
-<% provide(:title, "サインイン") %>
-<h1>サインイン</h1>
+<% provide(:title, "ログイン") %>
+<h1>ログイン</h1>
 
 <div class="row">
 	<div class="span6 offset3">
+		<div id="login_info">
+			<p>
+				デモアカウント<br />
+				メールアドレス　:　admin@example.co.jp<br />
+				パスワード　　　:　foobar
+			</p>
+		</div>
+
 		<%= form_tag sessions_path do %>
 
-			<%= label_tag :email %>
+			<%= label_tag :email, "メールアドレス" %>
 			<%= text_field_tag :email %>
 
-			<%= label_tag :password %>
+			<%= label_tag :password, "パスワード" %>
 			<%= password_field_tag :password %>
 
-			<%= submit_tag "サインイン", class: "btn btn-large btn-primary" %>
+			<%= submit_tag "ログイン", class: "btn btn-large btn-success" %>
 		<% end %>
 
-		<p>新規ユーザの場合、<%= link_to "ユーザ登録", signup_path %>へ</p>
+		<p>新規ユーザの場合、<%= link_to "MPosterアカウントを登録する", signup_path %>へ</p>
 	</div>
 </div>

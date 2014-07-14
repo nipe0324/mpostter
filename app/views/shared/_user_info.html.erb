@@ -8,5 +8,5 @@
 	<%= link_to "プロフィールを表示", current_user %>
 </span>
 <span>
-	<%= pluralize(current_user.microposts.count, "micropost") %>
+	<%= current_user.microposts.count %>ミニポスト
 </span>

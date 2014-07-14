@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="navbar-inner">
 		<div class="container">
-			<%= link_to "サンプルアプリ", root_path, id: "logo" %>
+			<%= link_to "MPoster", root_path, id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
 					<li><%= link_to "ホーム",		root_path %></li>
@@ -17,12 +17,12 @@
 								<li><%= link_to "設定", edit_user_path(current_user) %></li>
 								<li class="divider"></li>
 								<li>
-									<%= link_to "サインアウト", signout_path, method: "delete" %>
+									<%= link_to "ログアウト", signout_path, method: "delete" %>
 								</li>
 							</ul>
 						</li>
 					<% else %>
-						<li><%= link_to "サインイン", signin_path %></li>
+						<li><%= link_to "ログイン", signin_path %></li>
 					<% end %>
 				</ul>
 			</nav>

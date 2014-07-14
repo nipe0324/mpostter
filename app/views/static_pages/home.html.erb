@@ -12,21 +12,23 @@
 			</section>
 		</aside>
 		<div class="span8">
-			<h3>Post Feed</h3>
+			<h3>フィード一覧</h3>
 			<%= render 'shared/feed' %>
 		</div>
 	</div>
 <% else %>
 	<div class="center hero-unit">
-		<h1>サンプルアプリへようこそ</h1>
+		<h1>MPosterへようこそ</h1>
 
-		<h2>
-			<a href="http://railstutorial.jp/">Ruby on Railsチュートリアル</a>のサンプルアプリケーションの
-			ホーム画面です。
-		</h2>
+		<h2>Twitterのクローン</h2>
 
-		<%= link_to "サインアップ", signup_path, class: "btn btn-large btn-primary" %>
+		<p>
+			Twitter同様にツイート、フォローなどの機能があります。<br />
+			より詳細な機能については、<%= link_to "ヘルプ", help_path %>をご覧下さい。
+		</p>
+
+		<%= link_to "MPosterへ登録する", signup_path, class: "btn btn-large btn-warning", style: "color:black;" %>
+		<span style="padding: 30px;"></span>
+		<%= link_to "ログイン", signin_path, class: "btn btn-large btn-success" %>
 	</div>
-
-	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %>

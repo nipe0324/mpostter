@@ -11,7 +11,8 @@ class MicropostsController < ApplicationController
 			flash[:success] = "投稿しました。"
 			redirect_to root_url
 		else
-			@feed_items = []
+			@feed_items = current_user.feed.paginate(page: params[:page])
+			flash.now[:error] = @micropost.errors.full_messages.join('　')
 			render 'static_pages/home'
 		end
 	end

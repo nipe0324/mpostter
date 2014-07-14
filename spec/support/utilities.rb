@@ -9,16 +9,16 @@ def sign_in(user, options={})
 		user.update_attribute(:remember_token, User.encrypt(remember_token))
 	else
 		visit signin_path
-		fill_in "Email",			with: user.email
-		fill_in "Password",		with: user.password
-		click_button "サインイン"
+		fill_in "メールアドレス",			with: user.email
+		fill_in "パスワード",		with: user.password
+		click_button "ログイン"
 	end
 end
 
 def valid_signin(user)
-	fill_in "Email",			with: user.email.upcase
-	fill_in "Password",		with: user.password
-	click_button "サインイン"
+	fill_in "メールアドレス",			with: user.email.upcase
+	fill_in "パスワード",		with: user.password
+	click_button "ログイン"
 end
 
 RSpec::Matchers.define :have_error_message do |message|

@@ -2,11 +2,11 @@ module ApplicationHelper
 
 	# ページごとの完全なタイトルを返す
 	def full_title(page_title)
-		base_title = "Ruby on Rails チュートリアル サンプルアプリ"
+		base_title = "MPoster"
 		if page_title.empty?
 			base_title
 		else
-			"#{base_title} | #{page_title}"
+			"#{page_title} | #{base_title}"
 		end
 	end
 

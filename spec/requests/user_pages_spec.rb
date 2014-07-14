@@ -151,10 +151,10 @@ describe "User pages" do
   describe "sign up" do
     before { visit signup_path }
 
-    it { should have_content('サインアップ') }
-    it { should have_title(full_title('サインアップ')) }
+    it { should have_content('MPosterアカウントを作成する') }
+    it { should have_title(full_title('MPosterアカウントを作成する')) }
 
-    let(:submit) { "アカウント作成" }
+    let(:submit) { "アカウントを作成する" }
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -164,18 +164,18 @@ describe "User pages" do
       describe "after submission" do
         before { click_button submit }
 
-        it { should have_title('サインアップ') }
-        it { should have_content('error') }
+        it { should have_title('MPosterアカウントを作成する') }
+        it { should have_content('エラー') }
       end
 
     end
 
     describe "with valid information" do
       before do
-        fill_in "Name",           with: 'test'
-        fill_in "Email",          with: 'test@example.com'
-        fill_in "Password",       with: 'foobar'
-        fill_in "Confirm Password",   with: 'foobar'
+        fill_in "名前",           with: 'test'
+        fill_in "メールアドレス",          with: 'test@example.com'
+        fill_in "パスワード",       with: 'foobar'
+        fill_in "確認用パスワード",   with: 'foobar'
       end
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -185,7 +185,7 @@ describe "User pages" do
         before { click_button submit }
         let(:user) { User.find_by(email: 'test@example.com') }
 
-        it { should have_link('サインアウト') }
+        it { should have_link('ログアウト') }
         it { should have_title(user.name) }
         it { should have_success_message("ようこそ") }
       end
@@ -208,23 +208,23 @@ describe "User pages" do
     describe "with invalid information" do
       before { click_button "ユーザ更新" }
 
-      it { should have_content('error') }
+      it { should have_content('エラー') }
     end
 
     describe "with valid information" do
       let(:new_name)  { "新しい名前" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name",       with: new_name
-        fill_in "Email",      with: new_email
-        fill_in "Password",   with: user.password
-        fill_in "Confirm Password", with: user.password
+        fill_in "名前",       with: new_name
+        fill_in "メールアドレス",      with: new_email
+        fill_in "パスワード",   with: user.password
+        fill_in "確認用パスワード", with: user.password
         click_button "ユーザ更新"
       end
 
       it { should have_title(new_name) }
       it { should have_success_message('更新') }
-      it { should have_link('サインアウト', href: signout_path) }
+      it { should have_link('ログアウト', href: signout_path) }
       specify { expect(user.reload.name).to eq new_name }
       specify { expect(user.reload.email).to eq new_email }
     end

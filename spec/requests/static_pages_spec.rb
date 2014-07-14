@@ -11,9 +11,9 @@ describe "Static pages" do
 		click_link "お問い合わせ"
 		expect(page).to have_title(full_title('お問い合わせ'))
 		click_link "ホーム"
-		click_link "サインアップ"
-		expect(page).to have_title(full_title('サインアップ'))
-		click_link "サンプルアプリ"
+		click_link "MPosterへ登録する"
+		expect(page).to have_title(full_title('MPosterアカウントを作成する'))
+		click_link "MPoster"
 		expect(page).to have_title(full_title(''))
 	end
 
@@ -28,7 +28,7 @@ describe "Static pages" do
 
 	describe "Home page" do
 		before { visit root_path }
-		let(:heading)			{ 'サンプルアプリ' }
+		let(:heading)			{ 'MPoster' }
 		let(:page_title)	{ '' }
 
 		it_should_behave_like "全ての静的ページ"
