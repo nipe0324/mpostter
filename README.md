@@ -1,7 +1,7 @@
-# MPostter: [DEMO](https://whispering-badlands-1815.herokuapp.com/)
+# MPoster: [DEMO](https://whispering-badlands-1815.herokuapp.com/)
 
 ## このアプリは？
-### *MPostterはTwitter風のようなアプリです。*
+### MPosterはTwitter風のようなアプリです。
 
 ## 機能
 * 認証機能　　...ユーザ登録、ユーザログインができます。
