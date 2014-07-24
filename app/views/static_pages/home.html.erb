@@ -16,19 +16,62 @@
 			<%= render 'shared/feed' %>
 		</div>
 	</div>
+
 <% else %>
-	<div class="center hero-unit">
-		<h1>MPosterへようこそ</h1>
+	<div class="row home">
 
-		<h2>Twitterのクローン</h2>
+		<div class="front-bg">
+			<%= image_tag "IMG_0285_30per.JPG", alt: "MPoster home page", class: "front-image" %>
+		</div>
+		
+		<div class="span7">
+			<div class="front-welcome">
+				<h1>MPosterへようこそ</h1>
+				<p>
+					Twitterのクローンサイトです。<br />
+					Twitter同様にツイート、フォローなどの機能があります。<br />
+					より詳細な機能については、<%= link_to "ヘルプ", help_path %>をご覧下さい。
+				</p>
+			</div>
+		</div>
 
-		<p>
-			Twitter同様にツイート、フォローなどの機能があります。<br />
-			より詳細な機能については、<%= link_to "ヘルプ", help_path %>をご覧下さい。
-		</p>
+		<session class="span4">
+			<div class="front-login">
+				<%= form_tag sessions_path do %>
+					<%= label_tag :email, "メールアドレス", class: "visuallyhidden" %>
+					<%= text_field_tag :email, "", placeholder: "ユーザ名、またはメールアドレス" %>
+					<table><tbody><tr>
+						<td class="flex-table-primary">
+							<%= label_tag :password, "パスワード", class: "visuallyhidden" %>
+							<%= password_field_tag :password, "", placeholder: "パスワード" %>
+						</td>
+						<td class="flex-table-secondary">
+							<%= submit_tag "ログイン", class: "btn btn-login" %>
+						</td>
+					</tr></tbody></table>
+				<% end %>
+			</div>
+		</session>
 
-		<%= link_to "MPosterへ登録する", signup_path, class: "btn btn-large btn-warning", style: "color:black;" %>
-		<span style="padding: 30px;"></span>
-		<%= link_to "ログイン", signin_path, class: "btn btn-large btn-success" %>
+		<session class="span4">
+			<div class="front-signup">
+				<h2>MPoster始めませんか？</h2>
+
+		    <%= form_for User.new do |f| %>
+					<%= f.label :name, "名前", class: "visuallyhidden" %>
+					<%= f.text_field :name, placeholder: "名前" %>
+					<%= f.label :email, "メールアドレス", class: "visuallyhidden" %>
+					<%= f.text_field :email, placeholder: "メールアドレス" %>
+					<%= f.label :password, "パスワード", class: "visuallyhidden" %>
+					<%= f.password_field :password, placeholder: "パスワード" %>
+					<%= f.label :password_confirmation, "確認用パスワード", class: "visuallyhidden" %>
+					<%= f.password_field :password_confirmation, placeholder: "確認用パスワード" %>
+					<%= link_to "MPosterへ登録する", signup_path, class: "btn btn-warning" %>
+					<span class="test"></span>
+  		  <% end %>
+
+			</div>
+		</session>
+
 	</div>
 <% end %>

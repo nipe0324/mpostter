@@ -23,6 +23,11 @@ body {
 	padding-top: 60px;
 }
 
+container {
+	max-width: 940px;
+	width: 100%;
+}
+
 section {
 	overflow: auto;
 }
@@ -81,23 +86,53 @@ p {
 	line-height: 1.7em;
 }
 
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
 
 /**************************************
  ヘッダー
  **************************************/
-#logo {
+.navbar-inner {
+	height: 46px;
+	background: white !important;
+	border-bottom: 1px solid #e1e8ed !important;
+}
+
+.logo {
 	float: left;
-	margin-right: 10px;
+	margin-left: 20px;
 	font-size: 1.7em;
-	color: #fff;
-	text-transform: uppercase;
-	letter-spacing: -1px;
 	padding-top: 9px;
-	font-weight: bold;
 	line-height: 1;
-	&:hover {
-		color: white;
-		text-decoration: none;
+
+	.mlogo {
+		margin-right: 1px;
+		padding:1px 4px;
+		border:1px solid #55acee;
+		border-radius: 50px;
+		background: #55acee;
+		color: #fff;
+	}
+	a:hover {
+		color: #55acee;
+	}
+}
+
+.nav {
+	margin-top: 5px !important;
+
+	li a {
+		&:hover {
+			color: #55acee !important;
+		}
 	}
 }
 
@@ -231,22 +266,15 @@ input {
 	border-radius: 20px;
 }
 
-/* ログイントップ */
-#login_info {
-	font-size: 13px;
-	padding: 10px;
-	border: 1px dashed #181818;
-	font-weight: normal;
-	background: #fffcd6;
-	border-radius: 5px;
-	margin-bottom: 20px;
-}
-
 /**************************************
  フッター
  **************************************/
 footer {
-	margin-top: 45px;
+	bottom: 30px;
+	position: absolute;
+
+	width: 100%;
+
 	padding-top: 5px;
 	border-top: 1px solid $grayMediumLight;
 	color: $grayLight;
@@ -259,12 +287,14 @@ footer {
 	}
 
 	small {
+		margin-left: 20px;
 		float: left;
 	}
 
 	ul {
 		float: right;
 		list-style: none;
+		margin-right: 40px;
 		li {
 			float: left;
 			margin-left: 10px;

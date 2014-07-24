@@ -1,3 +1,50 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.users-new,
+.users-create {
+
+	.login-wrapper {
+		border: 1px solid rgba(0,0,0,0.1);
+		border-radius: 6px;
+		padding: 0px 150px;
+	}
+
+	h1 {
+		font-size: 24px;
+		line-height: .8;
+		text-align: left;
+		margin-top: 40px;
+		margin-bottom: 20px;
+	}
+
+	label {
+		font-size: 14px;
+		margin-bottom: 3px;
+		color: #292f33;
+	}
+
+	input {
+		width: 97%;
+		max-width: 382px;
+		margin-right: 10px;
+		margin-bottom: 15px;
+
+		font-size: 16px;
+		padding: 6px;
+	}
+
+	.btn {
+		font-size: 13px;
+		margin-top: 20px;
+		margin-bottom: 0px;
+		width: 300px;
+		padding: 7px 0;
+		font-weight: bold;
+	}
+
+	p {
+		font-size: 13px;
+	}
+}

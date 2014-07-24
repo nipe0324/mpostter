@@ -1,11 +1,13 @@
 <% provide(:title, 'MPosterアカウントを作成する') %>
-<h1>MPosterアカウントを作成する</h1>
-
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span6 offset1 login-wrapper">
+
+  	<h1>MPosterをはじめましょう</h1>
+
     <%= form_for(@user) do |f| %>
       <%= render 'fields', f: f %>
       <%= f.submit "MPosterアカウントを作成する", class: "btn btn-large btn-warning", style: "color: black;" %>
     <% end %>
+		<p>ログインの場合、<%= link_to "こちら", signin_path %>へ</p>
   </div>
 </div>
