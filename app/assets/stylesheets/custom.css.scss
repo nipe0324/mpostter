@@ -17,15 +17,20 @@ $greenLight: #5cb85c;
  **************************************/
 html {
   overflow-y: scroll;
+	height: 100%;
+	width: 100%;
 }
 
 body {
 	padding-top: 60px;
+	height: 100%;
+	width: 100%;
 }
 
-container {
-	max-width: 940px;
+.container {
 	width: 100%;
+	min-height: 100%;
+	height: 100%;
 }
 
 section {
@@ -108,7 +113,7 @@ p {
 
 .logo {
 	float: left;
-	margin-left: 20px;
+	margin-left: 10px;
 	font-size: 1.7em;
 	padding-top: 9px;
 	line-height: 1;
@@ -241,6 +246,11 @@ input {
 	height: auto !important;
 }
 
+.alert {
+	width: 80%;
+	margin: 10px auto 20px auto;
+}
+
 /* マイクロポスト */
 .microposts {
 	border: 2px solid $grayMediumLight;
@@ -270,11 +280,10 @@ input {
  フッター
  **************************************/
 footer {
-	bottom: 30px;
-	position: absolute;
-
+	height: 30px;
 	width: 100%;
 
+	margin-top: 30px;
 	padding-top: 5px;
 	border-top: 1px solid $grayMediumLight;
 	color: $grayLight;
