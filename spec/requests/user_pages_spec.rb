@@ -151,7 +151,7 @@ describe "User pages" do
   describe "sign up" do
     before { visit signup_path }
 
-    it { should have_content('MPosterアカウントを作成する') }
+    it { should have_content('MPosterをはじめましょう') }
     it { should have_title(full_title('MPosterアカウントを作成する')) }
 
     let(:submit) { "アカウントを作成する" }
