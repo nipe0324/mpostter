@@ -1,5 +1,7 @@
 # MPoster: [DEMO](https://whispering-badlands-1815.herokuapp.com/)
 
+[![Build Status](https://travis-ci.org/yanagi0324/mpostter.svg?branch=master)](https://travis-ci.org/yanagi0324/mpostter)
+
 ## このアプリは？
 ### MPosterはTwitter風のようなアプリです。
 
